@@ -54,6 +54,9 @@ nav ul li a {
 .project-card {
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .project-card img {
