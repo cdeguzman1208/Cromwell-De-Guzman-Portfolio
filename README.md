@@ -17,8 +17,10 @@ With a Bachelor's degree in Computer Science: Game Design, I am driven by a ferv
 - The Witch House. (2022)
 
 ### Projects
+- Weather App
 - Safe Space
 - Charging Saves Lives
+- AI Choreography Assistant
 - Lyric Loom Lyric & Audio Visualizer
 - Texture/Shader Assignment
 - Dynamic Generative Art Gallery
