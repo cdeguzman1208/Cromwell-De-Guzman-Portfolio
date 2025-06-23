@@ -34,6 +34,12 @@ With a Bachelor's degree in Computer Science: Game Design, I am driven by a ferv
 - Stray Kids - LALALALA Dance Cover
 - ATEEZ - Deja Vu Dance Cover
 - iKON - TANTARA Dance Cover
+- StarChrome Mainstay 2024 Performance
+- JK Family Mainstay 2024 Performance
+- POPreKa Mainstay 2024 Performance
+- JK Family Mainstay 2023 Performance
+- StarChrome Mainstay 2023 Performance
+- K-PLAY! FEST 2023 Performance
 
 ### Contact
 - Email: cdeguzman1208@gmail.com
