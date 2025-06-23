@@ -38,4 +38,5 @@ With a Bachelor's degree in Computer Science: Game Design, I am driven by a ferv
 ### Contact
 - Email: cdeguzman1208@gmail.com
 - Phone: 209-489-5767
+- Add Me On LinkedIn
 - Download My Resume
