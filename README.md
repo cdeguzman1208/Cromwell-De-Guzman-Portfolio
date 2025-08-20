@@ -19,6 +19,8 @@ With a Bachelor's degree in Computer Science: Game Design, I am driven by a ferv
 - Classificaiton of National Musical Instruments Data Visualization
 
 ### Games
+- A Chinese Ghost Story (2025)
+- Boardwalking: Remastered (2025)
 - Hour of the Witch (Coming Soon!)
 - Folded Friends (2023)
 - Blue (2023)
