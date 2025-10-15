@@ -1,278 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CROM FM | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#dance">Dance</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>Hello, my name is Cromwell Jonas De Guzman.</p>
-            <p>With a Bachelor's degree in Computer Science: Game Design, I am driven by a fervent ambition to establish myself as a leading professional in software engineering and front-end development. Proficient in HTML, CSS, and JavaScript, I leverage my skills and passion to create immersive and engaging user experiences and games across digital platforms. My academic background and hands-on projects have honed my ability to innovate and solve complex problems, positioning me to contribute effectively to cutting-edge development teams and transformative digital solutions.</p>
-        </section>
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <a href="https://docs.google.com/presentation/d/11NlK0XN-s1SS5XzkF8ywSUZVbiIoyoIAezGrb-wUGAQ/edit?usp=drive_link" class="project-card">
-                    <img src="assets/weatherapp_thumb.png" alt="Project 11">
-                    <div class="project-info">
-                        <h3>Weather App</h3>
-                        <p>UI/UX Prototype</p>
-                    </div>
-                </a>
-                <a href="https://www.figma.com/proto/xKSRKjGc6xRjjXQiVZ80LN/CMPM-178-Hi-fi-Prototyping-Team-2?page-id=1%3A16&node-id=2-24&p=f&viewport=496%2C77%2C0.06&t=xsRaHQgIpEwKlOwZ-1&scaling=min-zoom&content-scaling=fixed" class="project-card">
-                    <img src="assets/safespace_thumb.png" alt="Project 10">
-                    <div class="project-info">
-                        <h3>Safe Space</h3>
-                        <p>UI/UX Prototype</p>
-                    </div>
-                </a>
-                <a href="https://chargingsaveslives.weebly.com/" class="project-card">
-                    <img src="assets/csl_thumb.png" alt="Project 9">
-                    <div class="project-info">
-                        <h3>Charging Saves Lives</h3>
-                        <p>UI/UX Prototype</p>
-                    </div>
-                </a>
-                <a href="https://docs.google.com/presentation/d/1YIzSLA0_ywSJxqgO_o0cQof03dcgXIhbGkdMkU1F_4o/edit?usp=sharing" class="project-card">
-                    <img src="assets/aichoreoassistant_thumb.png" alt="Project 8">
-                    <div class="project-info">
-                        <h3>AI Choreography Assistant</h3>
-                        <p>AI Project</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/CMPM-169/" class="project-card">
-                    <img src="assets/audiovisualizer_thumb.png" alt="Project 7">
-                    <div class="project-info">
-                        <h3>Lyric Loom Lyric & Audio Visualizer</h3>
-                        <p>Made with P5.js</p>
-                    </div>
-                </a>
-                <a href="https://www.shadertoy.com/view/4X33Dl" class="project-card">
-                    <img src="assets/textureshader_thumb.png" alt="Project 6">
-                    <div class="project-info">
-                        <h3>Texture/Shader Assignment</h3>
-                        <p>Made with Shadertoy</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/Pattern-Assignment/" class="project-card">
-                    <img src="assets/genartgallery_thumb.png" alt="Project 5">
-                    <div class="project-info">
-                        <h3>Dynamic Generative Art Gallery</h3>
-                        <p>Made with P5.js</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/Installation-Project/" class="project-card">
-                    <img src="assets/heartrate_thumb.png" alt="Project 4">
-                    <div class="project-info">
-                        <h3>Synesthetic Heart Rate Visualizer</h3>
-                        <p>Made with P5.js</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/Generator-Project/" class="project-card">
-                    <img src="assets/recipegen_thumb.png" alt="Project 3">
-                    <div class="project-info">
-                        <h3>Recipe Generator</h3>
-                        <p>Made with P5.js</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/Digital-Greeting-Card/" class="project-card">
-                    <img src="assets/greetingcard_thumb.png" alt="Project 2">
-                    <div class="project-info">
-                        <h3>Digital Greeting Card</h3>
-                        <p>Made with P5.js</p>
-                    </div>
-                </a>
-                <a href="https://bdasgupta027.github.io/musical_instruments/" class="project-card">
-                    <img src="assets/musicalinstruments_thumb.png" alt="Project 1">
-                    <div class="project-info">
-                        <h3>Classification of National Musical Instruments Data Visualization</h3>
-                        <p>Made with D3.js</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-        <section id="games" class="section">
-            <h2>Games</h2>
-            <div class="projects-grid">
-                <a href="https://cromdog.itch.io/a-chinese-ghost-story" class="project-card">
-                    <img src="assets/achineseghoststory_thumb.png" alt="Game 11">
-                    <div class="project-info">
-                        <h3>A Chinese Ghost Story</h3>
-                        <p>A visual novel fantasy rpg</p>
-                    </div>
-                </a>
-                <a href="https://cromdog.itch.io/boardwalking-remastered" class="project-card">
-                    <img src="assets/boardwalking_re_thumb.png" alt="Game 10">
-                    <div class="project-info">
-                        <h3>Boardwalking: Remastered</h3>
-                        <p>A visual novel remake of Boardwalking (2023)</p>
-                    </div>
-                </a>
-                <a href="https://store.steampowered.com/app/2961100/Hour_of_the_Witch/" class="project-card">
-                    <img src="assets/hour_of_the_witch_thumb.png" alt="Game 9">
-                    <div class="project-info">
-                        <h3>Hour of the Witch</h3>
-                        <p>A top-down puzzle escape room horror game</p>
-                    </div>
-                </a>
-                <a href="https://jentsen.itch.io/folded-friends" class="project-card">
-                    <img src="assets/folded_friends_thumb.png" alt="Game 8">
-                    <div class="project-info">
-                        <h3>Folded Friends</h3>
-                        <p>A 3rd-person co-op puzzle adventure game</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/FilmVideogameAdaptation/" class="project-card">
-                    <img src="assets/blue_thumb.png" alt="Game 7">
-                    <div class="project-info">
-                        <h3>Blue</h3>
-                        <p>A visual novel game adaptation of Blue (1993)</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/ARTG120/" class="project-card">
-                    <img src="assets/built_different_thumb.png" alt="Game 6">
-                    <div class="project-info">
-                        <h3>Built Different</h3>
-                        <p>A top-down trash collecting robot game</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/EndlessRunner/" class="project-card">
-                    <img src="assets/endless_dancer_thumb.png" alt="Game 5">
-                    <div class="project-info">
-                        <h3>Endless Dancer</h3>
-                        <p>An endless runner style rhythm game</p>
-                    </div>
-                </a>
-                <a href="https://cromdog.itch.io/boardwalking" class="project-card">
-                    <img src="assets/boardwalking_thumb.png" alt="Game 4">
-                    <div class="project-info">
-                        <h3>Boardwalking</h3>
-                        <p>A text-based interactive narrative mystery game</p>
-                    </div>
-                </a>
-                <a href="https://cdeguzman1208.github.io/RocketPatrol2/" class="project-card">
-                    <img src="assets/ribbet_patrol_thumb.png" alt="Game 3">
-                    <div class="project-info">
-                        <h3>Ribbet Patrol</h3>
-                        <p>A frog-themed reskin of the original Rocket Patrol</p>
-                    </div>
-                </a>
-                <a href="https://cromdog.itch.io/gauntlet-quest" class="project-card">
-                    <img src="assets/gauntlet_quest_thumb.png" alt="Game 2">
-                    <div class="project-info">
-                        <h3>Gauntlet Quest</h3>
-                        <p>A top-down fantasy adventure game</p>
-                    </div>
-                </a>
-                <a href="https://cromdog.itch.io/the-witch-house" class="project-card">
-                    <img src="assets/the_witch_house_thumb.png" alt="Game 1">
-                    <div class="project-info">
-                        <h3>The Witch House.</h3>
-                        <p>A text-based interactive narrative mystery game</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-        <section id="dance" class="section">
-            <h2>Dance</h2>
-            <div class="projects-grid">
-                <a href="https://youtu.be/g5qlXbA1VMc?si=PRR9dr3Qplv_dGWb" class="project-card">
-                    <img src="assets/flicker_thumb.png" alt="Dance 10">
-                    <div class="project-info">
-                        <h3>ENHYPEN - Flicker Dance Cover</h3>
-                        <p>With POPreKa dance team</p>
-                    </div>
-                </a>
-                <a href="https://youtu.be/9ZcHZoM3Z1A?si=bMfqMLg95um9heSr" class="project-card">
-                    <img src="assets/lalalala_thumb.JPG" alt="Dance 9">
-                    <div class="project-info">
-                        <h3>Stray Kids - LALALALA Dance Cover</h3>
-                        <p>With StarChrome dance team</p>
-                    </div>
-                </a>
-                <a href="https://youtu.be/5A9ydVrZLiU?si=M6eJLaYYd_ptjXE9" class="project-card">
-                    <img src="assets/deja_vu_thumb.JPG" alt="Dance 8">
-                    <div class="project-info">
-                        <h3>ATEEZ - Deja Vu Dance Cover</h3>
-                        <p>With POPreKa dance team</p>
-                    </div>
-                </a>
-                <a href="https://youtu.be/CN9MsRXuYDU?si=hIbDciGXFqee5MRn" class="project-card">
-                    <img src="assets/tantara_thumb.JPG" alt="Dance 7">
-                    <div class="project-info">
-                        <h3>iKON - TANTARA Dance Cover</h3>
-                        <p>With StarChrome dance team</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=WSW6eEG0pQU" class="project-card">
-                    <img src="assets/starchrome_mainstay2024_thumb.jpg" alt="Dance 6">
-                    <div class="project-info">
-                        <h3>StarChrome Mainstay 2024 Performance</h3>
-                        <p>With StarChrome dance team</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=Uy9tdIz7cyo" class="project-card">
-                    <img src="assets/jkfam_mainstay2024_thumb.jpg" alt="Dance 5">
-                    <div class="project-info">
-                        <h3>JK Family Mainstay 2024 Performance</h3>
-                        <p>With JK Family dance team</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=EF1yox9_0fk" class="project-card">
-                    <img src="assets/popreka_mainstay2024_thumb.jpg" alt="Dance 4">
-                    <div class="project-info">
-                        <h3>POPreKa Mainstay 2024 Performance</h3>
-                        <p>With POPreKa dance team</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=4HI9sIJhWkM" class="project-card">
-                    <img src="assets/jkfam_mainstay2023_thumb.jpg" alt="Dance 3">
-                    <div class="project-info">
-                        <h3>JK Family Mainstay 2023 Performance</h3>
-                        <p>With JK Family dance team</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=sJ0qcLFjJAE" class="project-card">
-                    <img src="assets/starchrome_mainstay2023_thumb.jpg" alt="Dance 2">
-                    <div class="project-info">
-                        <h3>StarChrome Mainstay 2023 Performance</h3>
-                        <p>With StarChrome dance team</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=i7IInL_xjVk" class="project-card">
-                    <img src="assets/starchrome_kplayfest2023_thumb.jpg" alt="Dance 1">
-                    <div class="project-info">
-                        <h3>K-PLAY! FEST 2023 Performance</h3>
-                        <p>With StarChrome dance team</p>
-                    </div>
-                </a>
-        </section>
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p><i class="fas fa-envelope"></i> Email: <a href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=cdeguzman1208@gmail.com&hl=en" target="_blank">cdeguzman1208@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i> Phone: 209-489-5767</p>
-            <p><i class="fa fa-linkedin-square"></i> <a href="https://www.linkedin.com/in/cromwell-de-guzman-a19482218/" target="_blank">Add Me On LinkedIn</a></p>
-            <p><i class="fas fa-cloud-download"></i> <a href="assets/Cromwell_De_Guzman_Resume_2025.pdf" download>Download My Resume</a></p>
-        </section>
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="logo">
+      <i class="fa-solid fa-compact-disc"></i>
     </div>
+    <div class="logo">
+      <h1>Welcome to My Portfolio</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="#projects"><i class="fa-solid fa-code"></i> Projects</a></li>
+        <li><a href="#games"><i class="fa-solid fa-gamepad"></i> Games</a></li>
+        <li><a href="#dance"><i class="fa-solid fa-music"></i> Dance</a></li>
+        <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+    <div class="mode-toggle">
+      <i class="fa-solid fa-sun"></i>
+      <i class="fa-solid fa-moon"></i>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <!-- “Now Playing” header bar -->
+    <header class="player-bar">
+      <div class="now-playing">
+        <i class="fa-solid fa-play"></i>
+        <span id="track-title">Now Playing: Portfolio by Cromwell De Guzman</span>
+      </div>
+      <div class="controls">
+        <i class="fa-solid fa-backward-step"></i>
+        <i class="fa-solid fa-circle-play"></i>
+        <i class="fa-solid fa-forward-step"></i>
+      </div>
+      <div class="progress-bar"><span class="progress"></span></div>
+    </header>
+    <audio id="audio-player"></audio>
+
+    <!-- About -->
+    <section id="about" class="section about-section">
+      <h2>Artist Bio</h2>
+      <p><strong>Cromwell Jonas "CJ" De Guzman</strong> — Game Designer, Front-End Developer & Dancer.</p>
+      <p>
+        With a Bachelor's degree in Computer Science: Game Design, I am driven by a fervent ambition
+        to establish myself as a leading professional in software engineering and front-end development.
+        Proficient in HTML, CSS, and JavaScript, I leverage my skills and passion to create
+        immersive and engaging user experiences and games across digital platforms.
+        My academic background and hands-on projects have honed my ability to innovate and solve complex problems
+        positioning me to contribute effectively to cutting-edge development teams and transformative digital solutions.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section playlist-section">
+      <h2><i class="fa-solid fa-code"></i> Dev Tracks</h2>
+      <div class="track-grid">
+        <a href="https://docs.google.com/presentation/d/11NlK0XN-s1SS5XzkF8ywSUZVbiIoyoIAezGrb-wUGAQ/edit?usp=drive_link" target="_blank" class="track-card">
+          <img src="assets/weatherapp_thumb.png" alt="Weather App" />
+          <div class="track-info">
+            <h3>Weather App</h3>
+            <p>UI/UX Prototype</p>
+          </div>
+        </a>
+        <a href="https://www.figma.com/proto/xKSRKjGc6xRjjXQiVZ80LN/CMPM-178-Hi-fi-Prototyping-Team-2?page-id=1%3A16&node-id=2-24" target="_blank" class="track-card">
+          <img src="assets/safespace_thumb.png" alt="Safe Space" />
+          <div class="track-info">
+            <h3>Safe Space</h3>
+            <p>UI/UX Prototype</p>
+          </div>
+        </a>
+        <a href="https://chargingsaveslives.weebly.com/" target="_blank" class="track-card">
+            <img src="assets/csl_thumb.png" alt="Charging Saves Lives">
+            <div class="track-info">
+                <h3>Charging Saves Lives</h3>
+                <p>UI/UX Prototype</p>
+            </div>
+        </a>
+        <a href="https://docs.google.com/presentation/d/1YIzSLA0_ywSJxqgO_o0cQof03dcgXIhbGkdMkU1F_4o/edit?usp=sharing" target="_blank" class="track-card">
+            <img src="assets/aichoreoassistant_thumb.png" alt="AI Choreography Assistant">
+            <div class="track-info">
+                <h3>AI Choreography Assistant</h3>
+                <p>AI Project</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/CMPM-169/" target="_blank" class="track-card">
+            <img src="assets/audiovisualizer_thumb.png" alt="Lyric Loom">
+            <div class="track-info">
+                <h3>Lyric Loom Lyric & Audio Visualizer</h3>
+                <p>Made with P5.js</p>
+            </div>
+        </a>
+        <!-- <a href="https://www.shadertoy.com/view/4X33Dl" target="_blank" class="track-card">
+            <img src="assets/textureshader_thumb.png" alt="Texture/Shader Assignment">
+            <div class="track-info">
+                <h3>Texture/Shader Assignment</h3>
+                <p>Made with Shadertoy</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/Pattern-Assignment/" target="_blank" class="track-card">
+            <img src="assets/genartgallery_thumb.png" alt="Dynamic Generative Art Gallery">
+            <div class="track-info">
+                <h3>Dynamic Generative Art Gallery</h3>
+                <p>Made with P5.js</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/Installation-Project/" target="_blank" class="track-card">
+            <img src="assets/heartrate_thumb.png" alt="Synthetic Heart Rate Visualizer">
+            <div class="track-info">
+                <h3>Synesthetic Heart Rate Visualizer</h3>
+                <p>Made with P5.js</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/Generator-Project/" target="_blank" class="track-card">
+            <img src="assets/recipegen_thumb.png" alt="Recipe Generator">
+            <div class="track-info">
+                <h3>Recipe Generator</h3>
+                <p>Made with P5.js</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/Digital-Greeting-Card/" target="_blank" class="track-card">
+            <img src="assets/greetingcard_thumb.png" alt="Digital Greeting Card">
+            <div class="track-info">
+                <h3>Digital Greeting Card</h3>
+                <p>Made with P5.js</p>
+            </div>
+        </a> -->
+        <a href="https://bdasgupta027.github.io/musical_instruments/" target="_blank" class="track-card">
+            <img src="assets/musicalinstruments_thumb.png" alt="Classification of National Musical Instruments">
+            <div class="track-info">
+                <h3>Classification of National Musical Instruments Data Visualization</h3>
+                <p>Made with D3.js</p>
+            </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Games -->
+    <section id="games" class="section playlist-section">
+      <h2><i class="fa-solid fa-gamepad"></i> Game Mix</h2>
+      <div class="track-grid">
+        <a href="https://cromdog.itch.io/a-chinese-ghost-story" target="_blank" class="track-card">
+          <img src="assets/achineseghoststory_thumb.png" alt="A Chinese Ghost Story" />
+          <div class="track-info">
+            <h3>A Chinese Ghost Story</h3>
+            <p>Visual Novel RPG</p>
+          </div>
+        </a>
+        <a href="https://cromdog.itch.io/boardwalking-remastered" target="_blank" class="track-card">
+            <img src="assets/boardwalking_re_thumb.png" alt="Boardwalking: Remastered">
+            <div class="track-info">
+                <h3>Boardwalking: Remastered</h3>
+                <p>A visual novel remake of Boardwalking (2023)</p>
+            </div>
+        </a>
+        <a href="https://store.steampowered.com/app/2961100/Hour_of_the_Witch/" target="_blank" class="track-card">
+            <img src="assets/hour_of_the_witch_thumb.png" alt="Hour of the Witch">
+            <div class="track-info">
+                <h3>Hour of the Witch</h3>
+                <p>A top-down puzzle escape room horror game</p>
+            </div>
+        </a>
+        <a href="https://jentsen.itch.io/folded-friends" target="_blank" class="track-card">
+            <img src="assets/folded_friends_thumb.png" alt="Folded Friends">
+            <div class="track-info">
+                <h3>Folded Friends</h3>
+                <p>A 3rd-person co-op puzzle adventure game</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/FilmVideogameAdaptation/" target="_blank" class="track-card">
+            <img src="assets/blue_thumb.png" alt="Blue">
+            <div class="track-info">
+                <h3>Blue</h3>
+                <p>A visual novel game adaptation of Blue (1993)</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/ARTG120/" target="_blank" class="track-card">
+            <img src="assets/built_different_thumb.png" alt="Built Different">
+            <div class="track-info">
+                <h3>Built Different</h3>
+                <p>A top-down trash collecting robot game</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/EndlessRunner/" target="_blank" class="track-card">
+            <img src="assets/endless_dancer_thumb.png" alt="Endless Dancer">
+            <div class="track-info">
+                <h3>Endless Dancer</h3>
+                <p>An endless runner style rhythm game</p>
+            </div>
+        </a>
+        <a href="https://cromdog.itch.io/boardwalking" target="_blank" class="track-card">
+            <img src="assets/boardwalking_thumb.png" alt="Boardwalking">
+            <div class="track-info">
+                <h3>Boardwalking</h3>
+                <p>A text-based interactive narrative mystery game</p>
+            </div>
+        </a>
+        <a href="https://cdeguzman1208.github.io/RocketPatrol2/" target="_blank" class="track-card">
+            <img src="assets/ribbet_patrol_thumb.png" alt="Ribbet Patrol">
+            <div class="track-info">
+                <h3>Ribbet Patrol</h3>
+                <p>A frog-themed reskin of the original Rocket Patrol</p>
+            </div>
+        </a>
+        <a href="https://cromdog.itch.io/gauntlet-quest" target="_blank" class="track-card">
+            <img src="assets/gauntlet_quest_thumb.png" alt="Gauntlet Quest">
+            <div class="track-info">
+                <h3>Gauntlet Quest</h3>
+                <p>A top-down fantasy adventure game</p>
+            </div>
+        </a>
+        <a href="https://cromdog.itch.io/the-witch-house" target="_blank" class="track-card">
+            <img src="assets/the_witch_house_thumb.png" alt="The Witch House">
+            <div class="track-info">
+                <h3>The Witch House.</h3>
+                <p>A text-based interactive narrative mystery game</p>
+            </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Dance -->
+    <section id="dance" class="section playlist-section">
+      <h2><i class="fa-solid fa-music"></i> Dance Reels</h2>
+      <div class="track-grid">
+        <a href="https://youtu.be/g5qlXbA1VMc" target="_blank" class="track-card">
+          <img src="assets/flicker_thumb.png" alt="ENHYPEN Flicker" />
+          <div class="track-info">
+            <h3>ENHYPEN – Flicker</h3>
+            <p>POPreKa Dance Team</p>
+          </div>
+        </a>
+        <a href="https://youtu.be/9ZcHZoM3Z1A?si=bMfqMLg95um9heSr" target="_blank" class="track-card">
+            <img src="assets/lalalala_thumb.JPG" alt="Stray Kids LALALALA">
+            <div class="track-info">
+                <h3>Stray Kids - LALALALA Dance Cover</h3>
+                <p>With StarChrome dance team</p>
+            </div>
+        </a>
+        <a href="https://youtu.be/5A9ydVrZLiU?si=M6eJLaYYd_ptjXE9" target="_blank" class="track-card">
+            <img src="assets/deja_vu_thumb.JPG" alt="ATEEZ Deja Vu">
+            <div class="track-info">
+                <h3>ATEEZ - Deja Vu Dance Cover</h3>
+                <p>With POPreKa dance team</p>
+            </div>
+        </a>
+        <a href="https://youtu.be/CN9MsRXuYDU?si=hIbDciGXFqee5MRn" target="_blank" class="track-card">
+            <img src="assets/tantara_thumb.JPG" alt="iKON TANTARA">
+            <div class="track-info">
+                <h3>iKON - TANTARA Dance Cover</h3>
+                <p>With StarChrome dance team</p>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=WSW6eEG0pQU" target="_blank" class="track-card">
+            <img src="assets/starchrome_mainstay2024_thumb.jpg" alt="StarChrome Mainstay 2024">
+            <div class="track-info">
+                <h3>StarChrome Mainstay 2024 Performance</h3>
+                <p>With StarChrome dance team</p>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=Uy9tdIz7cyo" target="_blank" class="track-card">
+            <img src="assets/jkfam_mainstay2024_thumb.jpg" alt="JK Fam Mainstay 2024">
+            <div class="track-info">
+                <h3>JK Family Mainstay 2024 Performance</h3>
+                <p>With JK Family dance team</p>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=EF1yox9_0fk" target="_blank" class="track-card">
+            <img src="assets/popreka_mainstay2024_thumb.jpg" alt="POPreKa Mainstay 2024">
+            <div class="track-info">
+                <h3>POPreKa Mainstay 2024 Performance</h3>
+                <p>With POPreKa dance team</p>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=4HI9sIJhWkM" target="_blank" class="track-card">
+            <img src="assets/jkfam_mainstay2023_thumb.jpg" alt="JK Fam Mainstay 2023">
+            <div class="track-info">
+                <h3>JK Family Mainstay 2023 Performance</h3>
+                <p>With JK Family dance team</p>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=sJ0qcLFjJAE" target="_blank" class="track-card">
+            <img src="assets/starchrome_mainstay2023_thumb.jpg" alt="StarChrome Mainstay 2023">
+            <div class="track-info">
+                <h3>StarChrome Mainstay 2023 Performance</h3>
+                <p>With StarChrome dance team</p>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=i7IInL_xjVk" target="_blank" class="track-card">
+            <img src="assets/starchrome_kplayfest2023_thumb.jpg" alt="K-PLAY! FEST 2023">
+            <div class="track-info">
+                <h3>K-PLAY! FEST 2023 Performance</h3>
+                <p>With StarChrome dance team</p>
+            </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><i class="fa-solid fa-envelope"></i>
+          <a href="https://cdeguzman1208.github.io/Cromwell-De-Guzman-Portfolio/#contact">cdeguzman1208@gmail.com</a></li>
+        <li><i class="fa-brands fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/cromwell-de-guzman-a19482218/" target="_blank">LinkedIn</a></li>
+        <li><i class="fa-solid fa-file-arrow-down"></i>
+          <a href="assets/Cromwell_De_Guzman_Resume_2025.pdf" download>Download Resume</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Background “Visualizer” Canvas -->
+  <div id="visualizer"></div>
+  <script src="visualizer.js"></script>
 </body>
 </html>
