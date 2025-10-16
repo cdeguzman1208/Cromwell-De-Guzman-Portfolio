@@ -262,52 +262,110 @@ body {
     display: block;
   }
   
+  /* ---------- FIXED-SIDEBAR SAFE HEADER ---------- */
+/* Adjust this value if your sidebar width is different */
+:root {
+  --sidebar-width: 220px;
+  --header-padding: 0.75rem 1.5rem;
+}
+
+/* Make the header sit to the right of the fixed sidebar on desktop */
+.player-bar {
+  position: sticky;
+  top: 0;
+  left: var(--sidebar-width);             /* ensures header doesn't sit under the sidebar */
+  right: 0;
+  width: calc(100% - var(--sidebar-width)); /* header width is viewport minus sidebar */
+  padding: var(--header-padding);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background: rgba(18,18,18,0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+/* internal container so children layout is predictable */
+.player-bar .player-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px; /* keeps the bar from growing too wide on ultra-large displays */
+  margin: 0 auto;
+  padding: 0 0.25rem;
+  box-sizing: border-box;
+}
+
+/* Now-playing area */
+.player-bar .now-playing {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 220px; /* prevents text from collapsing into controls */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Controls box */
+.player-bar .controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: 0.5rem;
+  flex: 0 0 auto; /* size to content */
+}
+
+/* Constrain progress-bar so it sits between controls and right edge,
+   and doesn't expand across the whole page */
+.player-bar .progress-bar {
+  flex: 1 1 320px; /* grow to fill remaining space, but at least 320px */
+  max-width: 720px; /* prevents extremely long bars on very wide screens */
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: 1rem;
+}
+
+.player-bar .progress-bar .progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #1DB954, #b84fff);
+  transition: width 0.1s linear;
+  display: block;
+}
+
+/* small nicety: keep the play/pause icon aligned */
+.player-bar .controls i {
+  font-size: 1.15rem;
+}
+
+/* ---------- RESPONSIVE: when sidebar stacks or is removed ---------- */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 0px; }
+
+  /* Make header full width on small screens */
   .player-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #121212;
-    color: white;
-    padding: 0.8rem 2rem;
-    font-family: 'Roboto', sans-serif;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
   }
-  
+
+  .player-bar .player-inner {
+    max-width: none;
+    gap: 0.5rem;
+  }
+
   .player-bar .now-playing {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.9rem;
+    min-width: 0;
+    font-size: 0.95rem;
   }
-  
-  .player-bar .controls i {
-    margin: 0 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+
+  .player-bar .progress-bar {
+    max-width: none;
+    flex-basis: 1rem;
   }
-  
-  .player-bar .controls i:hover {
-    transform: scale(1.2);
-  }
-  
-  .progress-bar {
-    flex-grow: 1;
-    height: 4px;
-    background: #444;
-    margin-left: 1.5rem;
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .progress-bar .progress {
-    display: block;
-    width: 0%;
-    height: 100%;
-    background: #1DB954;
-    transition: width 0.1s linear;
-  }
-  
+}

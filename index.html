@@ -37,17 +37,21 @@
   <main class="main-content">
     <!-- “Now Playing” header bar -->
     <header class="player-bar">
-      <div class="now-playing">
-        <i class="fa-solid fa-play"></i>
-        <span id="track-title">Now Playing: Portfolio by Cromwell De Guzman</span>
+      <div class="player-inner">
+        <div class="now-playing">
+          <i class="fa-solid fa-play"></i>
+          <span id="track-title">Now Playing: Portfolio by Cromwell De Guzman</span>
+        </div>
+    
+        <div class="controls">
+          <i class="fa-solid fa-backward-step" id="prev"></i>
+          <i class="fa-solid fa-circle-play" id="play"></i>
+          <i class="fa-solid fa-forward-step" id="next"></i>
+        </div>
+    
+        <div class="progress-bar"><span class="progress"></span></div>
       </div>
-      <div class="controls">
-        <i class="fa-solid fa-backward-step"></i>
-        <i class="fa-solid fa-circle-play"></i>
-        <i class="fa-solid fa-forward-step"></i>
-      </div>
-      <div class="progress-bar"><span class="progress"></span></div>
-    </header>
+    </header>    
     <audio id="audio-player"></audio>
 
     <!-- About -->
