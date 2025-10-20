@@ -10,68 +10,48 @@
 </head>
 
 <body>
-  <!-- Sidebar Navigation -->
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="logo">
       <i class="fa-solid fa-compact-disc"></i>
-    </div>
-    <div class="logo">
-      <h1>Welcome to My Portfolio</h1>
+      <span>Portfolio</span>
     </div>
     <nav>
       <ul>
+        <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
         <li><a href="#projects"><i class="fa-solid fa-code"></i> Projects</a></li>
         <li><a href="#games"><i class="fa-solid fa-gamepad"></i> Games</a></li>
         <li><a href="#dance"><i class="fa-solid fa-music"></i> Dance</a></li>
-        <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
       </ul>
     </nav>
-    <div class="mode-toggle">
-      <i class="fa-solid fa-sun"></i>
-      <i class="fa-solid fa-moon"></i>
+    <div class="sidebar-footer">
+      <div class="mode-toggle"><i class="fa-solid fa-sun"></i> <i class="fa-solid fa-moon"></i></div>
     </div>
   </aside>
 
-  <!-- Main Content Area -->
+  <!-- MAIN CONTENT -->
   <main class="main-content">
-    <!-- “Now Playing” header bar -->
-    <header class="player-bar">
-      <div class="player-inner">
-        <div class="now-playing">
-          <i class="fa-solid fa-play"></i>
-          <span id="track-title">Now Playing: Portfolio by Cromwell De Guzman</span>
-        </div>
-    
-        <div class="controls">
-          <i class="fa-solid fa-backward-step" id="prev"></i>
-          <i class="fa-solid fa-circle-play" id="play"></i>
-          <i class="fa-solid fa-forward-step" id="next"></i>
-        </div>
-    
-        <div class="progress-bar"><span class="progress"></span></div>
-      </div>
-    </header>    
-    <audio id="audio-player"></audio>
-
-    <!-- About -->
-    <section id="about" class="section about-section">
-      <h2>About</h2>
-      <p><strong>Cromwell Jonas "CJ" De Guzman</strong> — Game Designer, Front-End Developer & Dancer.</p>
-      <p>
-        With a Bachelor's degree in Computer Science: Game Design, I am driven by a fervent ambition
-        to establish myself as a leading professional in software engineering and front-end development.
-        Proficient in HTML, CSS, and JavaScript, I leverage my skills and passion to create
-        immersive and engaging user experiences and games across digital platforms.
-        My academic background and hands-on projects have honed my ability to innovate and solve complex problems
-        positioning me to contribute effectively to cutting-edge development teams and transformative digital solutions.
+    <section id="home" class="section hero">
+      <p><i class="fa-solid fa-circle-check"></i> Front-End Developer, Game Designer, Dancer</p>
+      <h1>Cromwell De Guzman</h1>
+      <p class="bio">
+        Hello! I’m a front-end developer and game designer with a Bachelor’s in Computer Science: Game Design.
+        My work bridges technology and creativity, from building responsive web interfaces to designing interactive experiences that tell stories.
+        Skilled in HTML, CSS, and JavaScript, I focus on crafting digital products that feel intuitive, engaging, and performance-driven.
+        I’m passionate about creating meaningful user experiences, collaborating across disciplines, and pushing ideas from concept to polished reality.
       </p>
+      <div class="contact">
+        <a href="#home"><i class="fa-solid fa-envelope"></i> cdeguzman1208@gmail.com</a>
+        <a href="https://github.com/cdeguzman1208?ocid=AIDcmmcwpj1e5v_SEM__k_CjwKCAjw65-zBhBkEiwAjrqRML9Qd87Gg7Rn6jGSbvJbJj1fWTeZEKIq9-PfS78WIrCiBbSRDa4WTBoCPFAQAvD_BwE_k_" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/cromwell-de-guzman-a19482218/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section playlist-section">
+    <section id="projects" class="section playlist">
       <h2><i class="fa-solid fa-code"></i> Projects</h2>
       <div class="track-grid">
+        <!-- project cards here -->
         <a href="https://docs.google.com/presentation/d/11NlK0XN-s1SS5XzkF8ywSUZVbiIoyoIAezGrb-wUGAQ/edit?usp=drive_link" target="_blank" class="track-card">
           <img src="assets/weatherapp_thumb.png" alt="Weather App" />
           <div class="track-info">
@@ -152,10 +132,10 @@
       </div>
     </section>
 
-    <!-- Games -->
-    <section id="games" class="section playlist-section">
+    <section id="games" class="section playlist">
       <h2><i class="fa-solid fa-gamepad"></i> Games</h2>
       <div class="track-grid">
+        <!-- game cards here -->
         <a href="https://cromdog.itch.io/a-chinese-ghost-story" target="_blank" class="track-card">
           <img src="assets/achineseghoststory_thumb.png" alt="A Chinese Ghost Story" />
           <div class="track-info">
@@ -236,10 +216,10 @@
       </div>
     </section>
 
-    <!-- Dance -->
-    <section id="dance" class="section playlist-section">
+    <section id="dance" class="section playlist">
       <h2><i class="fa-solid fa-music"></i> Dance</h2>
       <div class="track-grid">
+        <!-- dance videos or links -->
         <a href="https://youtu.be/g5qlXbA1VMc" target="_blank" class="track-card">
           <img src="assets/flicker_thumb.png" alt="ENHYPEN Flicker" />
           <div class="track-info">
@@ -312,23 +292,46 @@
         </a>
       </div>
     </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section contact-section">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li><i class="fa-solid fa-envelope"></i>
-          <a href="https://cdeguzman1208.github.io/Cromwell-De-Guzman-Portfolio/#contact">cdeguzman1208@gmail.com</a></li>
-        <li><i class="fa-brands fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/cromwell-de-guzman-a19482218/" target="_blank">LinkedIn</a></li>
-        <li><i class="fa-solid fa-file-arrow-down"></i>
-          <a href="https://drive.google.com/file/d/1RSL1lGhI3FiU3hnp6-PO2qrsSqJAg3aA/view?usp=sharing" target="_blank">View My Resume</a></li>
-      </ul>
-    </section>
   </main>
 
-  <!-- Background “Visualizer” Canvas -->
-  <div id="visualizer"></div>
-  <script src="visualizer.js"></script>
+  <!-- BOTTOM MUSIC BAR -->
+  <footer class="player-bar">
+    <!-- LEFT -->
+    <div class="now-playing">
+      <div class="track-info">
+        <span id="track-title"></span>
+        <span id="track-artist"></span>
+      </div>
+    </div>
+  
+    <!-- CENTER -->
+    <div class="center-controls-wrapper">
+      <div class="controls">
+        <i id="prevBtn" class="fa-solid fa-backward"></i>
+        <i id="playPauseBtn" class="fa-solid fa-circle-play"></i>
+        <i id="nextBtn" class="fa-solid fa-forward"></i>
+      </div>      
+      <div class="progress-area">
+        <span id="current-time">0:00</span>
+        <div class="progress-bar">
+          <div class="progress"></div>
+          <div class="progress-handle"></div>
+        </div>
+        <span id="duration">0:00</span>
+      </div>
+    </div>    
+  
+    <!-- RIGHT -->
+    <div class="volume">
+      <i class="fa-solid fa-volume-high"></i>
+      <div class="volume-bar">
+        <div class="volume-fill"></div>
+        <div class="volume-handle"></div>
+      </div>
+    </div>    
+  </footer>  
+
+<!-- include player script -->
+<script src="script.js" defer></script>
 </body>
 </html>
