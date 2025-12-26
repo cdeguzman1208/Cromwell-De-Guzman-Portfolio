@@ -36,5 +36,5 @@ Hello! I’m a front-end developer and game designer with a Bachelor’s in Comp
 - StarChrome Mainstay Performacne 2023
 - StarChrome K-PLAY! FEST Bay Area Performance 2023
 
-## Music
+### Music
 - N/A
