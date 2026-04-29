@@ -1,277 +1,297 @@
-/* ---------- GLOBAL STYLES ---------- */
+/* =========================
+   GLOBAL DESIGN SYSTEM
+========================= */
+:root {
+  --bg: #0b0f14;
+  --sidebar: #020617;
+  --card: #11161d;
+
+  --accent: #22c55e;
+
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+
+  --radius: 16px;
+}
+
+/* =========================
+   BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Poppins", "Roboto", sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #121212;
-  color: #fff;
-  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
 a {
-  color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+  color: inherit;
+  transition: 0.2s;
 }
 
-a:hover {
-  color: #1db954;
+/* =========================
+   LAYOUT
+========================= */
+.main-content {
+  margin-left: 100px;
+  padding-bottom: 120px;
 }
 
-/* ---------- SIDEBAR ---------- */
+.container {
+  max-width: 100%;
+  margin: auto auto auto 100px;
+  padding: 2rem;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 220px;
+  width: 100px;
   height: 100vh;
-  background: rgba(18, 18, 18, 0.95);
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: var(--sidebar);
+  border-right: 1px solid rgba(255,255,255,0.05);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   padding: 1.5rem 1rem;
-  z-index: 10;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #1db954;
+  color: var(--accent);
   font-weight: 700;
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-}
-
-.sidebar-footer {
-  margin-top: auto;
-  text-align: center;
-  color: #888;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  margin-bottom: 1rem;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
-  margin-top: 2rem;
 }
 
 nav ul li {
-  margin: 1rem 0;
+  margin-bottom: 0.5rem;
 }
 
 nav ul li a {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 500;
-  opacity: 0.8;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  padding: 0.3rem 0.4rem;
+  border-radius: 10px;
+  color: var(--muted);
 }
 
 nav ul li a:hover {
-  opacity: 1;
-  color: #1db954;
-}
-
-/* ---------- MAIN CONTENT ---------- */
-.main-content {
-  margin-left: 250px;
-  padding-bottom: 120px; /* Leave room for player bar */
-  padding-top: 0px;
-}
-
-.hero {
-  text-align: left;
+  background: rgba(255,255,255,0.05);
   color: white;
-  padding: 2rem;
-  position: relative;
-  z-index: 1;
-  height: 60vh; /* adjust as needed */
+}
 
-  /* background image styling */
-  background-image: url('https://www.gifgit.com/site-images/toolpage-images/gradient-tool-example1.jpg'); /* replace with your image path */
-  background-size: cover;    /* makes the image fill the section */
-  background-position: center; /* centers the image nicely */
-  background-repeat: no-repeat;
+.sidebar-footer {
+  margin-top: auto;
+  text-align: center;
+  color: var(--muted);
+}
 
+/* =========================
+   HERO
+========================= */
+.hero {
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* keeps text at the bottom */
-  padding-left: 2rem;
+  justify-content: center;
+
+  background: radial-gradient(circle at 25% 25%, #1f2937, #020617);
+  border-radius: var(--radius);
 }
 
-/* optional: dark overlay for better text readability */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* adjust darkness */
-  z-index: 0;
-}
-
-.hero * {
-  position: relative;
-  z-index: 1; /* ensure text is above the overlay */
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.bio {
-  font-size: 1.1rem;
-  color: white;
-  margin-bottom: 1.5rem;
-}
-
-.contact a {
-  margin-right: 1rem;
-  color: #1db954;
-  font-weight: 500;
-}
-
-/* ---------- PLAYLIST SECTIONS ---------- */
-.playlist {
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-.playlist h2 {
-  margin-top: 3rem;
+.tag {
+  color: var(--muted);
   margin-bottom: 1rem;
 }
 
-/* ---------- GRID ---------- */
-.track-grid {
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  max-width: 1080px;
+  color: var(--muted);
+  margin: 1rem 0 2rem;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact a {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+}
+
+.contact a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
-/* ---------- TRACK CARD ---------- */
+/* =========================
+   CARD (SPOTIFY-STYLE)
+========================= */
 .track-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  background: #121820; /* slightly lighter than bg */
+  border-radius: 16px;
   padding: 1rem;
-  transition: transform 0.3s ease, background 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  transition: all 0.25s ease;
 }
 
-/* Hover effect on card */
+/* subtle lift on hover */
 .track-card:hover {
+  background: #1a212b;
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.08);
 }
 
-/* ---------- TRACK INFO ---------- */
-.track-info {
-  position: relative;
-  overflow: hidden; /* clip the title */
-}
-
-/* Title fades optional (you can enable if you want fade effect) */
-.track-info::before,
-.track-info::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 1rem; /* width of the fade */
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Title */
-.track-info h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 1rem 0 0 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  transform: translateX(0);
-  transition: transform 0.3s ease; /* smooth snap back */
-}
-
-/* Subtitle / description */
-.track-info p {
-  font-size: 0.85rem;
-  color: #aaa;
-  margin: 0.25rem 0 0 0;
-}
-
-/* ---------- IMAGE ---------- */
+/* =========================
+   IMAGE WRAPPER (IMPORTANT)
+========================= */
 .track-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 12px;
   display: block;
 }
 
-/* Play button container */
+/* wrap image for play button positioning */
+.track-card {
+  position: relative;
+}
+
+/* =========================
+   PLAY BUTTON (inside image)
+========================= */
 .track-card::after {
-  content: "\f04b"; /* Font Awesome play icon unicode */
-  font-family: "Font Awesome 6 Free"; 
-  font-weight: 900; /* solid icon */
+  content: "\f04b";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 2rem;
-  height: 2rem;
-  background-color: #00ff00; /* green circle */
-  color: #000; /* black play icon */
+
+  /* anchor to image corner */
+  bottom: 36%; /* pushes it into image area */
+  right: 1.5rem;
+
+  width: 48px;
+  height: 48px;
+
+  background: #22c55e;
+  color: black;
+
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 1rem;
+
   opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none; /* so it doesn't block clicks */
+  transform: translateY(10px) scale(0.9);
+  transition: all 0.25s ease;
 }
 
-/* Show on hover */
+/* reveal on hover */
 .track-card:hover::after {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0) scale(1);
 }
 
-/* ---------- PLAYER BAR ---------- */
+/* =========================
+   TEXT BELOW IMAGE
+========================= */
+.track-info {
+  margin-top: 0.8rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.track-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: block;
+}
+
+.track-info p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-top: 0.3rem;
+}
+
+/* =========================
+   PLAYER BAR
+========================= */
 .player-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+
   height: 90px;
   background: #181818;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-top: 1px solid rgba(255,255,255,0.1);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 0 1.5rem;
-  z-index: 100;
-  color: white;
 }
 
-/* LEFT: Now Playing */
+/* LEFT */
 .now-playing {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  min-width: 220px;
-}
-
-.track-info {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3;
+  min-width: 200px;
 }
 
 #track-title {
@@ -284,7 +304,7 @@ nav ul li a:hover {
   color: #aaa;
 }
 
-/* CENTER: Controls + Progress */
+/* CENTER */
 .center-controls-wrapper {
   position: absolute;
   left: 50%;
@@ -292,128 +312,113 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(100% - 320px); /* full width minus sidebar and volume area */
-  max-width: 900px;
 }
 
 .controls {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  margin-bottom: 0.6rem;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .controls i {
   cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
   font-size: 1.4rem;
 }
 
 .controls i:hover {
-  color: #1db954;
-  transform: scale(1.1);
+  color: var(--accent);
 }
 
-/* Progress Bar */
+/* PROGRESS */
 .progress-area {
   display: flex;
   align-items: center;
-  width: 60%;
-  gap: 0.6rem;
-}
-
-#current-time,
-#duration {
-  font-size: 0.8rem;
-  color: #aaa;
+  gap: 0.5rem;
+  width: 400px;
 }
 
 .progress-bar {
   position: relative;
   flex: 1;
   height: 5px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   border-radius: 3px;
   cursor: pointer;
 }
 
 .progress {
   position: absolute;
-  top: 0;
-  left: 0;
   height: 100%;
   width: 0%;
-  background: #1db954;
+  background: var(--accent);
   border-radius: 3px;
-  transition: width 0.05s linear;
 }
 
 .progress-handle {
   position: absolute;
   top: 50%;
   left: 0%;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: white;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
-  pointer-events: none;
-  box-shadow: 0 2px 6px rgba(27, 185, 103, 0.25);
-  transition: transform 0.08s ease, left 0.05s linear;
+  transition: transform 0.1s ease;
   z-index: 2;
+  cursor: pointer;
 }
 
-/* Show handle while dragging or hovering */
 .progress-bar:hover .progress-handle,
 .progress-handle.dragging {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* RIGHT: Volume Controls */
+/* RIGHT */
 .volume {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  min-width: 140px;
-  justify-content: flex-end;
-  margin-right: 3rem;
 }
 
 .volume-bar {
   position: relative;
-  flex: 1;
+  width: 100px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   border-radius: 2px;
   cursor: pointer;
-  overflow: visible;
 }
 
 .volume-fill {
   position: absolute;
   height: 100%;
   width: 50%;
-  background: #1db954;
+  background: var(--accent);
   border-radius: 2px;
-  transition: width 0.05s linear;
 }
 
 .volume-handle {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 12px;
-  height: 12px;
-  background: #fff;
+  width: 14px;
+  height: 14px;
+  background: white;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.08s ease, left 0.05s linear;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  pointer-events: none;
+  transition: transform 0.1s ease;
+  z-index: 2;
+  cursor: pointer;
 }
 
-/* ---------- RESPONSIVE ---------- */
+.volume-bar:hover .volume-handle,
+.volume-handle.dragging {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
   .sidebar {
     position: static;
@@ -421,34 +426,13 @@ nav ul li a:hover {
     height: auto;
     flex-direction: row;
     justify-content: space-around;
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
   .main-content {
     margin-left: 0;
-    padding: 1rem;
-    padding-bottom: 100px;
-  }
-
-  .player-bar {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 1rem;
-  }
-
-  .center-controls-wrapper {
-    width: 100%;
-    max-width: 100%;
   }
 
   .progress-area {
-    margin-top: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  #current-time,
-  #duration {
-    display: none;
+    width: 100%;
   }
 }
