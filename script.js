@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isDraggingProgress = false;
   let isDraggingVolume = false;
 
-  const audio = new Audio(tracks[currentTrack].src);
+  const audio = new Audio();
 
   // ===== ELEMENTS =====
   const playPauseBtn = document.getElementById("playPauseBtn");
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
+
   const progressContainer = document.querySelector(".progress-bar");
   const progressBar = document.querySelector(".progress");
   const progressHandle = document.querySelector(".progress-handle");
@@ -44,19 +45,30 @@ document.addEventListener("DOMContentLoaded", () => {
     progressHandle.style.left = `${percent * 100}%`;
   };
 
+  const updateVolumeVisual = (percent) => {
+    volumeFill.style.width = `${percent * 100}%`;
+    volumeHandle.style.left = `${percent * 100}%`;
+  };
+
+  // ===== LOAD TRACK =====
   const loadTrack = (index) => {
     const track = tracks[index];
+
     audio.src = track.src;
     trackTitle.textContent = track.title;
     trackArtist.textContent = track.artist;
+
     updateProgressVisual(0);
     currentTimeEl.textContent = "0:00";
     durationEl.textContent = "0:00";
 
-    // Preload metadata for duration
     audio.addEventListener("loadedmetadata", () => {
       durationEl.textContent = formatTime(audio.duration);
     }, { once: true });
+
+    if (isPlaying) {
+      audio.play();
+    }
   };
 
   // ===== PLAYBACK =====
@@ -65,19 +77,18 @@ document.addEventListener("DOMContentLoaded", () => {
       audio.pause();
       playPauseBtn.classList.replace("fa-circle-pause", "fa-circle-play");
     } else {
-      audio.play().catch(() => {
-        audio.addEventListener("canplay", () => audio.play(), { once: true });
-      });
+      audio.play();
       playPauseBtn.classList.replace("fa-circle-play", "fa-circle-pause");
     }
     isPlaying = !isPlaying;
   };
 
-  // ===== PROGRESS BAR =====
+  // ===== PROGRESS DRAG =====
+  let progressRect;
+
   const seekProgress = (e) => {
-    const rect = progressContainer.getBoundingClientRect();
-    const offsetX = Math.min(Math.max(0, e.clientX - rect.left), rect.width);
-    const percent = offsetX / rect.width;
+    const percent = Math.min(Math.max(0, (e.clientX - progressRect.left) / progressRect.width), 1);
+
     if (!isNaN(audio.duration)) {
       audio.currentTime = percent * audio.duration;
       updateProgressVisual(percent);
@@ -87,7 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   progressContainer.addEventListener("mousedown", (e) => {
     isDraggingProgress = true;
-    progressHandle.style.transform = "translate(-50%, -50%) scale(1)";
+    progressRect = progressContainer.getBoundingClientRect();
+
+    document.body.style.userSelect = "none";
+    progressHandle.classList.add("dragging");
+
     seekProgress(e);
   });
 
@@ -98,11 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("mouseup", () => {
     if (isDraggingProgress) {
       isDraggingProgress = false;
-      progressHandle.style.transform = "translate(-50%, -50%) scale(0)";
+      document.body.style.userSelect = "";
+      progressHandle.classList.remove("dragging");
     }
   });
 
-  // Update progress & timestamp during playback
+  // ===== TIME UPDATE =====
   audio.addEventListener("timeupdate", () => {
     if (!isDraggingProgress && !isNaN(audio.duration)) {
       const percent = audio.currentTime / audio.duration;
@@ -111,61 +127,66 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ===== VOLUME BAR =====
-  const setVolumeFromEvent = (e) => {
-    const rect = volumeBar.getBoundingClientRect();
-    const percent = Math.min(Math.max(0, (e.clientX - rect.left) / rect.width), 1);
+  // ===== VOLUME DRAG =====
+  let volumeRect;
+
+  const setVolume = (e) => {
+    const percent = Math.min(Math.max(0, (e.clientX - volumeRect.left) / volumeRect.width), 1);
+
     audio.volume = percent;
-    volumeFill.style.width = `${percent * 100}%`;
-    volumeHandle.style.left = `${percent * 100}%`;
-    volumeHandle.style.transform = "translate(-50%, -50%) scale(1)";
+    updateVolumeVisual(percent);
   };
 
-  volumeBar.addEventListener("mousedown", e => {
+  volumeBar.addEventListener("mousedown", (e) => {
     isDraggingVolume = true;
-    setVolumeFromEvent(e);
+    volumeRect = volumeBar.getBoundingClientRect();
+
+    document.body.style.userSelect = "none";
+    volumeHandle.classList.add("dragging");
+
+    setVolume(e);
   });
 
-  document.addEventListener("mousemove", e => {
-    if (isDraggingVolume) setVolumeFromEvent(e);
+  document.addEventListener("mousemove", (e) => {
+    if (isDraggingVolume) setVolume(e);
   });
 
   document.addEventListener("mouseup", () => {
     if (isDraggingVolume) {
       isDraggingVolume = false;
-      volumeHandle.style.transform = "translate(-50%, -50%) scale(0)";
+      document.body.style.userSelect = "";
+      volumeHandle.classList.remove("dragging");
     }
   });
 
-  volumeBar.addEventListener("click", setVolumeFromEvent);
-
-  // ===== EVENTS =====
-  playPauseBtn.addEventListener("click", togglePlay);
-  audio.addEventListener("ended", () => {
-    currentTrack = (currentTrack + 1) % tracks.length;
-    loadTrack(currentTrack);
-    audio.play();
-  });
-
+  // ===== TRACK CONTROLS =====
   prevBtn.addEventListener("click", () => {
     currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
     loadTrack(currentTrack);
-    if (isPlaying) audio.play();
   });
 
   nextBtn.addEventListener("click", () => {
     currentTrack = (currentTrack + 1) % tracks.length;
     loadTrack(currentTrack);
-    if (isPlaying) audio.play();
   });
+
+  audio.addEventListener("ended", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+  });
+
+  playPauseBtn.addEventListener("click", togglePlay);
 
   // ===== INIT =====
   loadTrack(currentTrack);
   audio.volume = 0.5;
-  volumeFill.style.width = "50%";
-  volumeHandle.style.left = "50%";
+  updateVolumeVisual(0.5);
 });
 
+
+/* =========================
+   CARD TITLE SCROLL
+========================= */
 document.querySelectorAll('.track-card').forEach(card => {
   const title = card.querySelector('h3');
 
@@ -174,26 +195,79 @@ document.querySelectorAll('.track-card').forEach(card => {
     const textWidth = title.scrollWidth;
 
     if (textWidth > containerWidth) {
-      // Remove clipping/ellipsis
       title.style.overflow = 'visible';
       title.style.textOverflow = 'clip';
 
-      // Animate scroll
       const distance = textWidth - containerWidth;
-      title.style.transition = `transform ${distance / 30}s linear`; // speed: 30px/sec
-      title.style.transform = `translateX(-${distance}px)`;
+
+      title.style.transition = 'none';
+      requestAnimationFrame(() => {
+        title.style.transition = `transform ${distance / 30}s linear`;
+        title.style.transform = `translateX(-${distance}px)`;
+      });
     }
   });
 
   card.addEventListener('mouseleave', () => {
-    // Snap back
     title.style.transition = 'transform 0.3s ease';
     title.style.transform = 'translateX(0)';
 
-    // Restore clipping/ellipsis after snap
     setTimeout(() => {
       title.style.overflow = 'hidden';
       title.style.textOverflow = 'ellipsis';
     }, 300);
+  });
+});
+
+
+/* =========================
+   COPY TO CLIPBOARD
+========================= */
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied to clipboard!");
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+
+document.querySelectorAll('.track-card').forEach(card => {
+  const title = card.querySelector('.track-info h3');
+
+  if (!title) return;
+
+  card.addEventListener('mouseenter', () => {
+    const containerWidth = title.parentElement.offsetWidth;
+    const textWidth = title.scrollWidth;
+
+    if (textWidth > containerWidth) {
+      const distance = textWidth - containerWidth;
+
+      // remove clipping so it can scroll
+      title.style.overflow = 'visible';
+      title.style.textOverflow = 'clip';
+
+      // reset instantly
+      title.style.transition = 'none';
+      title.style.transform = 'translateX(0)';
+
+      // animate on next frame (prevents glitch)
+      requestAnimationFrame(() => {
+        title.style.transition = `transform ${distance / 30}s linear`;
+        title.style.transform = `translateX(-${distance}px)`;
+      });
+    }
+  });
+
+  card.addEventListener('mouseleave', () => {
+    // snap back
+    title.style.transition = 'transform 0.25s ease';
+    title.style.transform = 'translateX(0)';
+
+    // restore ellipsis after animation
+    setTimeout(() => {
+      title.style.overflow = 'hidden';
+      title.style.textOverflow = 'ellipsis';
+    }, 250);
   });
 });
