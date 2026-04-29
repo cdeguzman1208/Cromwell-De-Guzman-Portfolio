@@ -3,6 +3,7 @@
 Hello! I’m a front-end developer and game designer with a Bachelor’s in Computer Science: Game Design. My work bridges technology and creativity, from building responsive web interfaces to designing interactive experiences that tell stories. Skilled in HTML, CSS, and JavaScript, I focus on crafting digital products that feel intuitive, engaging, and performance-driven. I’m passionate about creating meaningful user experiences, collaborating across disciplines, and pushing ideas from concept to polished reality.
 
 ### Projects
+- Playstre
 - RemiminderAI
 - Weather App
 - Safe Space
