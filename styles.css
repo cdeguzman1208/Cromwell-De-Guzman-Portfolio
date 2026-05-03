@@ -17,6 +17,10 @@
 /* =========================
    BASE
 ========================= */
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -38,13 +42,18 @@ a {
    LAYOUT
 ========================= */
 .main-content {
-  margin-left: 100px;
+  margin-left: 210px;
   padding-bottom: 120px;
+  transition: margin-left 0.25s ease;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 70px;
 }
 
 .container {
   max-width: 100%;
-  margin: auto auto auto 100px;
+  margin: auto;
   padding: 2rem;
 }
 
@@ -55,13 +64,32 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100px;
+  width: 210px;
   height: 100vh;
   background: var(--sidebar);
   border-right: 1px solid rgba(255,255,255,0.05);
   display: flex;
   flex-direction: column;
   padding: 1.5rem 1rem;
+  transition: width 0.25s ease;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar.collapsed .logo,
+.sidebar.collapsed nav ul li a {
+  justify-content: center;
+}
+
+.sidebar.collapsed .logo span,
+.sidebar.collapsed nav ul li a .nav-text {
+  display: none;
+}
+
+.sidebar.collapsed .close-icon {
+  display: none;
 }
 
 .logo {
@@ -73,6 +101,17 @@ a {
   font-size: 1.2rem;
   padding: 0.3rem;
   margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.logo .close-icon {
+  display: none;
+  font-size: 1rem;
+}
+
+.sidebar:not(.collapsed) .close-icon {
+  display: inline-flex;
+  margin-left: auto;
 }
 
 nav ul {

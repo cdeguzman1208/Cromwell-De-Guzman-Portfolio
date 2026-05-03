@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const durationEl = document.getElementById("duration");
 
   const volumeBar = document.querySelector(".volume-bar");
+  const logo = document.querySelector(".logo");
+  const sidebar = document.querySelector(".sidebar");
+  const mainContent = document.querySelector(".main-content");
   const volumeFill = document.querySelector(".volume-fill");
   const volumeHandle = document.querySelector(".volume-handle");
 
@@ -176,6 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   playPauseBtn.addEventListener("click", togglePlay);
+
+  logo.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    mainContent.classList.toggle("sidebar-collapsed");
+  });
 
   // ===== INIT =====
   loadTrack(currentTrack);
