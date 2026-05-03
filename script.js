@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.querySelector(".main-content");
   const volumeFill = document.querySelector(".volume-fill");
   const volumeHandle = document.querySelector(".volume-handle");
+  const volumeIcon = document.querySelector('.volume i');
 
   // ===== UTILS =====
   const formatTime = (sec) => {
@@ -51,6 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateVolumeVisual = (percent) => {
     volumeFill.style.width = `${percent * 100}%`;
     volumeHandle.style.left = `${percent * 100}%`;
+    updateVolumeIcon(percent);
+  };
+
+  const updateVolumeIcon = (volume) => {
+    if (audio.muted || volume === 0) {
+      volumeIcon.className = 'fa-solid fa-volume-xmark';
+    } else if (volume < 0.5) {
+      volumeIcon.className = 'fa-solid fa-volume-low';
+    } else {
+      volumeIcon.className = 'fa-solid fa-volume-high';
+    }
   };
 
   // ===== LOAD TRACK =====
@@ -162,6 +174,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ===== VOLUME ICON CLICK (MUTE/UNMUTE) =====
+  volumeIcon.addEventListener('click', () => {
+    if (audio.muted) {
+      audio.muted = false;
+      updateVolumeVisual(audio.volume);
+    } else {
+      audio.muted = true;
+      updateVolumeVisual(0);
+    }
+  });
+
   // ===== TRACK CONTROLS =====
   prevBtn.addEventListener("click", () => {
     currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
@@ -197,26 +220,63 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================= */
 document.querySelectorAll('.track-card').forEach(card => {
   const title = card.querySelector('h3');
+  if (!title) return;
+
+  let shouldAnimate = false;
 
   card.addEventListener('mouseenter', () => {
+    if (shouldAnimate) return;
+
     const containerWidth = title.parentElement.offsetWidth;
     const textWidth = title.scrollWidth;
 
     if (textWidth > containerWidth) {
+      shouldAnimate = true;
       title.style.overflow = 'visible';
-      title.style.textOverflow = 'clip';
 
       const distance = textWidth - containerWidth;
+      const speed = 50; // pixels per second
+      const scrollDuration = distance / speed;
+      const pauseDuration = 0.5; // seconds
 
-      title.style.transition = 'none';
-      requestAnimationFrame(() => {
-        title.style.transition = `transform ${distance / 30}s linear`;
+      const animate = () => {
+        if (!shouldAnimate) return;
+
+        // Scroll to end
+        title.style.transition = `transform ${scrollDuration}s linear`;
         title.style.transform = `translateX(-${distance}px)`;
-      });
+
+        setTimeout(() => {
+          if (!shouldAnimate) return;
+          // Pause at end
+          title.style.transition = 'none';
+        }, scrollDuration * 1000);
+
+        setTimeout(() => {
+          if (!shouldAnimate) return;
+          // Scroll back to start
+          title.style.transition = `transform ${scrollDuration}s linear`;
+          title.style.transform = `translateX(0)`;
+        }, (scrollDuration + pauseDuration) * 1000);
+
+        setTimeout(() => {
+          if (!shouldAnimate) return;
+          // Pause at start
+          title.style.transition = 'none';
+        }, (scrollDuration * 2 + pauseDuration) * 1000);
+
+        // Loop
+        setTimeout(() => {
+          if (shouldAnimate) animate();
+        }, (scrollDuration * 2 + pauseDuration * 2) * 1000);
+      };
+
+      animate();
     }
   });
 
   card.addEventListener('mouseleave', () => {
+    shouldAnimate = false;
     title.style.transition = 'transform 0.3s ease';
     title.style.transform = 'translateX(0)';
 
@@ -238,44 +298,3 @@ function copyToClipboard(text) {
     console.error('Failed to copy: ', err);
   });
 }
-
-document.querySelectorAll('.track-card').forEach(card => {
-  const title = card.querySelector('.track-info h3');
-
-  if (!title) return;
-
-  card.addEventListener('mouseenter', () => {
-    const containerWidth = title.parentElement.offsetWidth;
-    const textWidth = title.scrollWidth;
-
-    if (textWidth > containerWidth) {
-      const distance = textWidth - containerWidth;
-
-      // remove clipping so it can scroll
-      title.style.overflow = 'visible';
-      title.style.textOverflow = 'clip';
-
-      // reset instantly
-      title.style.transition = 'none';
-      title.style.transform = 'translateX(0)';
-
-      // animate on next frame (prevents glitch)
-      requestAnimationFrame(() => {
-        title.style.transition = `transform ${distance / 30}s linear`;
-        title.style.transform = `translateX(-${distance}px)`;
-      });
-    }
-  });
-
-  card.addEventListener('mouseleave', () => {
-    // snap back
-    title.style.transition = 'transform 0.25s ease';
-    title.style.transform = 'translateX(0)';
-
-    // restore ellipsis after animation
-    setTimeout(() => {
-      title.style.overflow = 'hidden';
-      title.style.textOverflow = 'ellipsis';
-    }, 250);
-  });
-});

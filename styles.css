@@ -335,7 +335,7 @@ h2 {
 
 #track-title {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 #track-artist {
@@ -355,17 +355,23 @@ h2 {
 
 .controls {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 0.5rem;
+  align-items: center;
 }
 
 .controls i {
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .controls i:hover {
   color: var(--accent);
+}
+
+/* play button larger */
+.controls .play-btn {
+  font-size: 2rem;
 }
 
 /* PROGRESS */
@@ -374,6 +380,7 @@ h2 {
   align-items: center;
   gap: 0.5rem;
   width: 400px;
+  font-size: 0.75rem;
 }
 
 .progress-bar {
@@ -417,6 +424,10 @@ h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.volume i {
+  cursor: pointer;
 }
 
 .volume-bar {
